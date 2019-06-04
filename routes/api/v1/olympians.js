@@ -5,7 +5,6 @@ var Team = require('../../../models').Team;
 var Event = require('../../../models').Event;
 var EventAthelete = require('../../../models').EventAthelete;
 var Sport = require('../../../models').Sport;
-
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op
 
