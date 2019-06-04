@@ -3,7 +3,11 @@ var router = express.Router();
 var Athelete = require('../../../models').Athelete;
 var Team = require('../../../models').Team;
 var Event = require('../../../models').Event;
+var EventAthelete = require('../../../models').EventAthelete;
 var Sport = require('../../../models').Sport;
+
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 
 var pry = require('pryjs')
 
@@ -31,25 +35,31 @@ function findAllAtheletes() {
               model: Sport,
               attributes: ['name']
           }]
+        },
+        {
+          model: EventAthelete,
+          attributes: ['medal'],
+          where: { medal: {[Op.not]: 'NA'} },
+          required: false
         }
       ]
     })
     .then(atheletes => {
-      var atheletes = atheletes.map(athelete => {
-        var team = athelete.Team.name
-        var sport = athelete.Events[0].Sport.name
-        athelete = athelete.toJSON();
-        athelete.team = team
-        athelete.sport = sport
-        delete athelete.Team
-        delete athelete.Events
-        return athelete
+      return atheletes.map(athelete => {
+        let formattedAthelete = {
+          name: athelete.name,
+          team: athelete.Team.name,
+          age: athelete.age,
+          sport: athelete.Events[0].Sport.name,
+          total_medals_won: athelete.EventAtheletes.length
+        };
+        return formattedAthelete
       })
+    })
+    .then(atheletes => {
       resolve(atheletes)
-      // eval(pry.it)
     })
     .catch(error => {
-      eval(pry.it)
       reject(error)
     });
   })
