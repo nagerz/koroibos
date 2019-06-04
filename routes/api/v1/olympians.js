@@ -15,8 +15,26 @@ router.get("/", async function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
   findAllAtheletes()
   .then(atheletes => {
-    res.status(200).send(JSON.stringify(atheletes));
+    if (Object.keys(req.query).length != 0) {
+      if (req.query.age) {
+        if (req.query.age == 'youngest'){
+          res.status(200).send(JSON.stringify(atheletes[0]));
+        }else if (req.query.age == 'oldest'){
+          res.status(200).send(JSON.stringify(atheletes[atheletes.length-1]));
+        } else {
+          res.status(404).send({error: "Invalid query."})
+        }
+      } else {
+        res.status(404).send({error: "Invalid query."})
+      }
+    } else {
+      let result = {olympians: atheletes}
+      res.status(200).send(JSON.stringify(result));
+    }
   })
+  .catch(error => {
+    res.status(404).send({error: error})
+  });
 });
 
 function findAllAtheletes() {
