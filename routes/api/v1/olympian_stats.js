@@ -1,16 +1,7 @@
 var express = require("express");
 var router = express.Router();
-
 var Athelete = require('../../../models').Athelete;
-var Team = require('../../../models').Team;
-var Event = require('../../../models').Event;
-var EventAthelete = require('../../../models').EventAthelete;
-var Sport = require('../../../models').Sport;
-
 const Sequelize = require('sequelize');
-const Op = Sequelize.Op
-
-var pry = require('pryjs');
 
 router.get("/", async function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
