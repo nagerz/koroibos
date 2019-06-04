@@ -6,8 +6,6 @@ const EventAthelete = require('../models').EventAthelete
 const Sport = require('../models').Sport
 const Team = require('../models').Team
 
-var pry = require('pryjs')
-
 let counter = 0;
 let csvStream = csv.fromPath("./data/olympic_data_2016.csv", {headers: true})
 .on('data', record =>  {
