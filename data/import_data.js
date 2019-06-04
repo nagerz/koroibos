@@ -64,31 +64,22 @@ let csvStream = csv.fromPath("./data/olympic_data_2016.csv", {headers: true})
             medal: rec_medal
           })
           .catch(error => {
-            eval(pry.it)
             console.log("event athelete failure")
           })
         })
         .catch(error => {
-          eval(pry.it)
-
           console.log("athelete failure")
         })
       })
       .catch(error => {
-        eval(pry.it)
-
         console.log("team failure")
       })
     })
     .catch(error => {
-      eval(pry.it)
-
       console.log("event failure")
     })
   })
   .catch(error => {
-    eval(pry.it)
-
     console.log("sport failure")
   });
 
