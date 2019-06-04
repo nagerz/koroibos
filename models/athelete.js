@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     weight: DataTypes.INTEGER
   }, {});
   Athelete.associate = function(models) {
-    Athelete.hasMany(models.EventAthelete)
-    Athelete.belongsToMany(models.Event, { through: models.EventAthelete, foreignKey: 'AtheleteId'})
-    Athelete.belongsTo(models.Team)
+    Athelete.hasMany(models.EventAthelete);
+    Athelete.belongsToMany(models.Event, { through: models.EventAthelete});
+    Athelete.belongsTo(models.Team);
   };
   return Athelete;
 };

@@ -18,9 +18,9 @@ router.get("/", async function(req, res, next) {
     if (Object.keys(req.query).length != 0) {
       if (req.query.age) {
         if (req.query.age == 'youngest'){
-          res.status(200).send(JSON.stringify(atheletes[0]));
+          res.status(200).send(atheletes[0]);
         }else if (req.query.age == 'oldest'){
-          res.status(200).send(JSON.stringify(atheletes[atheletes.length-1]));
+          res.status(200).send(atheletes[atheletes.length-1]);
         } else {
           res.status(404).send({error: "Invalid query."})
         }

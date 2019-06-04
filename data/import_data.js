@@ -9,7 +9,7 @@ const Team = require('../models').Team
 var pry = require('pryjs')
 
 let counter = 0;
-let csvStream = csv.fromPath("./data/olympic_data_2016_2.csv", {headers: true})
+let csvStream = csv.fromPath("./data/olympic_data_2016.csv", {headers: true})
 .on('data', record =>  {
 
   csvStream.pause();
@@ -37,21 +37,17 @@ let csvStream = csv.fromPath("./data/olympic_data_2016_2.csv", {headers: true})
   })
   .then(sport => {
     Event.findOrCreate({
-      where: {
-        name: rec_event,
-        SportId: sport[0].id
-      }
+      where: {name: rec_event},
+      defaults: { SportId: sport[0].id }
     })
     .then(event => {
       Team.findOrCreate({
-        where: {
-          name: rec_team
-        }
+        where: {name: rec_team}
       })
       .then(team => {
         Athelete.findOrCreate({
-          where: {
-            name: rec_name,
+          where: {name: rec_name},
+          defaults: {
             sex: rec_sex,
             age: rec_age,
             height: rec_height,
@@ -60,30 +56,39 @@ let csvStream = csv.fromPath("./data/olympic_data_2016_2.csv", {headers: true})
           }
         })
         .then(athelete => {
-          EventAthelete.findOrCreate({
-            where: {
-              AtheleteId: athelete[0].id,
-              EventId: event[0].id,
-              medal: rec_medal
-            }
+          var athelete_id = athelete[0].id
+          var event_id = event[0].id
+          EventAthelete.create({
+            AtheleteId: athelete_id,
+            EventId: event_id,
+            medal: rec_medal
           })
           .catch(error => {
+            eval(pry.it)
             console.log("event athelete failure")
           })
         })
         .catch(error => {
+          eval(pry.it)
+
           console.log("athelete failure")
         })
       })
       .catch(error => {
+        eval(pry.it)
+
         console.log("team failure")
       })
     })
     .catch(error => {
+      eval(pry.it)
+
       console.log("event failure")
     })
   })
   .catch(error => {
+    eval(pry.it)
+
     console.log("sport failure")
   });
 
@@ -99,4 +104,4 @@ let csvStream = csv.fromPath("./data/olympic_data_2016_2.csv", {headers: true})
 
 setTimeout(function() {
   process.exit();
-}, 15000);
+}, 40000);
