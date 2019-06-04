@@ -1,3 +1,5 @@
+var pry = require('pryjs')
+
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Athelete = sequelize.define('Athelete', {
@@ -12,5 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     Athelete.belongsToMany(models.Event, { through: models.EventAthelete, foreignKey: 'AtheleteId'})
     Athelete.belongsTo(models.Team)
   };
+
+  // Athelete.team = function() {
+  //   return new Promise((resolve, reject) => {
+  //     this.team()
+  //     .then(team => {
+  //       eval(pry.it)
+  //       resolve(team.name);
+  //     })
+  //   })
+  // };
+
   return Athelete;
 };

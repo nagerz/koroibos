@@ -10,7 +10,7 @@ var pry = require('pryjs')
 
 let counter = 0;
 let csvStream = csv.fromPath("./data/olympic_data_2016_2.csv", {headers: true})
-.on('data', (record) =>  {
+.on('data', record =>  {
 
   csvStream.pause();
   let rec_name = record.Name;
