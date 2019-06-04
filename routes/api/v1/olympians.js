@@ -42,7 +42,8 @@ function findAllAtheletes() {
           where: { medal: {[Op.not]: 'NA'} },
           required: false
         }
-      ]
+      ],
+      order: [['age', 'ASC']],
     })
     .then(atheletes => {
       return atheletes.map(athelete => {
