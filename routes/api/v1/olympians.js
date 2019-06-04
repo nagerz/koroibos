@@ -9,8 +9,6 @@ var Sport = require('../../../models').Sport;
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op
 
-var pry = require('pryjs')
-
 router.get("/", async function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
   findAllAtheletes()
