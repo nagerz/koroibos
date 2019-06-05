@@ -6,48 +6,56 @@ module.exports = {
       {
         EventId: 1,
         AtheleteId: 1,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 2,
         AtheleteId: 2,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 3,
         AtheleteId: 2,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 4,
         AtheleteId: 2,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 5,
         AtheleteId: 2,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 6,
         AtheleteId: 2,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 7,
         AtheleteId: 2,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         EventId: 8,
         AtheleteId: 3,
+        medal: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },

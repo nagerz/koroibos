@@ -15,9 +15,11 @@ router.get("/", async function(req, res, next) {
     if (Object.keys(req.query).length != 0) {
       if (req.query.age) {
         if (req.query.age == 'youngest'){
-          res.status(200).send(atheletes[0]);
+          var youngest_olympian = [atheletes[0]];
+          var result = {youngest_olympian}
         }else if (req.query.age == 'oldest'){
-          res.status(200).send(atheletes[atheletes.length-1]);
+          var oldest_olympian = [atheletes[atheletes.length-1]];
+          var result = {oldest_olympian}
         } else {
           res.status(404).send({error: "Invalid query."})
         }
@@ -25,9 +27,9 @@ router.get("/", async function(req, res, next) {
         res.status(404).send({error: "Invalid query."})
       }
     } else {
-      let result = {olympians: atheletes}
-      res.status(200).send(JSON.stringify(result));
+      var result = {olympians: atheletes}
     }
+    res.status(200).send(JSON.stringify(result));
   })
   .catch(error => {
     res.status(404).send({error: error})
@@ -58,7 +60,7 @@ function findAllAtheletes() {
           required: false
         }
       ],
-      order: [['age', 'ASC']],
+      order: [['age', 'ASC'], ['name', 'ASC']],
     })
     .then(atheletes => {
       return atheletes.map(athelete => {

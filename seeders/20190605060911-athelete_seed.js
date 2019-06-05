@@ -10,7 +10,8 @@ module.exports = {
         height: 170,
         weight: 125,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        TeamId: 1
       },
       {
         name: 'Nstor Abad Sanjun',
@@ -19,7 +20,8 @@ module.exports = {
         height: 167,
         weight: 64,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        TeamId: 2
       },
       {
         name: 'Antonio Abadia Beci',
@@ -28,7 +30,8 @@ module.exports = {
         height: 179,
         weight: 65,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        TeamId: 2
       },
       {
         name: 'Giovanni Abagnale',
@@ -37,7 +40,8 @@ module.exports = {
         height: 198,
         weight: 90,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        TeamId: 3
       },
       {
         name: 'Patimat Abakarova',
@@ -46,7 +50,8 @@ module.exports = {
         height: 165,
         weight: 49,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        TeamId: 4
       },
       {
         name: 'Luc Abalo',
@@ -55,7 +60,8 @@ module.exports = {
         height: 182,
         weight: 86,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        TeamId: 5
       }
     ], {})
   },
