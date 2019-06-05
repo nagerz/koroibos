@@ -53,7 +53,7 @@ describe('Olympians API', () => {
     })
 
     test('it should return a unsuccessful request for bad age request', () => {
-      return request(app).get('/api/v1/olympians?are=badrequest').then(response => {
+      return request(app).get('/api/v1/olympians?age=badrequest').then(response => {
         expect(response.status).toBe(404)
         expect(response.body.error).toBe("Invalid query.")
       })
