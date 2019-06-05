@@ -9,7 +9,7 @@ describe('Olympian Stats API', () => {
       specHelper.testSetup()
     });
 
-    test('it should return a successful request for all olympians', () => {
+    test('it should return a successful request for olympian stats', () => {
       return request(app).get('/api/v1/olympian_stats').then(response => {
         expect(response.status).toBe(200)
         expect(response.body.olympian_stats.total_competing_olympians).toBe(6)
