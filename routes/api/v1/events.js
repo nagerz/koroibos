@@ -8,14 +8,12 @@ var EventAthelete = require('../../../models').EventAthelete;
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op
 
-var pry = require('pryjs');
-
 router.get("/", async function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
   eventsBySport()
   .then(sports => {
-      let result = {events: sports}
-      res.status(200).send(JSON.stringify(result));
+    let result = {events: sports}
+    res.status(200).send(JSON.stringify(result));
   })
   .catch(error => {
     res.status(404).send({error: error})
@@ -26,11 +24,9 @@ router.get("/:id/medalists", async function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
   eventMedalists(req.params.id)
   .then(event => {
-      // let result = {events: event}
-      res.status(200).send(JSON.stringify(event));
+    res.status(200).send(JSON.stringify(event));
   })
   .catch(error => {
-
     res.status(404).send({error: error})
   });
 });
