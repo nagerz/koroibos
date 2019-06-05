@@ -54,10 +54,14 @@ let csvStream = csv.fromPath("./data/olympic_data_2016.csv", {headers: true})
           }
         })
         .then(athelete => {
-          EventAthelete.create({
-            AtheleteId: athelete[0].id,
-            EventId: event[0].id,
-            medal: rec_medal
+          EventAthelete.findOrCreate({
+            where: {
+              AtheleteId: athelete[0].id,
+              EventId: event[0].id
+            },
+            defaults: {
+              medal: rec_medal
+            }
           })
           .catch(error => {
             console.log("event athelete failure")
