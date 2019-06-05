@@ -76,6 +76,7 @@ function eventMedalists(id) {
           model: EventAthelete,
           attributes: ['medal'],
           where: {medal: {[Op.not]: 'NA'}},
+          required: false,
           include: [
             {
               model: Athelete,
@@ -100,7 +101,7 @@ function eventMedalists(id) {
           "medal": ea.medal
         }
         return medalist
-      });
+      })
       let formattedEvent = {
         event: event.name,
         medalists: medalists
