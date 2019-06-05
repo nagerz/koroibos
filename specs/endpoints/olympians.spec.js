@@ -44,5 +44,19 @@ describe('Olympians API', () => {
         expect(response.body.oldest_olympian[0].total_medals_won).toBe(1)
       })
     })
+
+    test('it should return a unsuccessful request for bad query request', () => {
+      return request(app).get('/api/v1/olympians?badquery=oldest').then(response => {
+        expect(response.status).toBe(404)
+        expect(response.body.error).toBe("Invalid query.")
+      })
+    })
+
+    test('it should return a unsuccessful request for bad age request', () => {
+      return request(app).get('/api/v1/olympians?are=badrequest').then(response => {
+        expect(response.status).toBe(404)
+        expect(response.body.error).toBe("Invalid query.")
+      })
+    })
   })
 })
