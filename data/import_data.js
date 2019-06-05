@@ -54,11 +54,9 @@ let csvStream = csv.fromPath("./data/olympic_data_2016.csv", {headers: true})
           }
         })
         .then(athelete => {
-          var athelete_id = athelete[0].id
-          var event_id = event[0].id
           EventAthelete.create({
-            AtheleteId: athelete_id,
-            EventId: event_id,
+            AtheleteId: athelete[0].id,
+            EventId: event[0].id,
             medal: rec_medal
           })
           .catch(error => {
