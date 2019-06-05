@@ -95,4 +95,4 @@ let csvStream = csv.fromPath("./data/olympic_data_2016.csv", {headers: true})
 
 setTimeout(function() {
   process.exit();
-}, 40000);
+}, 90000);
