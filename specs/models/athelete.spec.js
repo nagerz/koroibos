@@ -2,8 +2,6 @@ var specHelper = require('../spec_helper');
 var request = require("supertest");
 var app = require('../../app');
 var Athelete = require('../../models').Athelete;
-var Event = require('../../models').Event;
-var EventAthelete = require('../../models').EventAthelete;
 var Team = require('../../models').Team;
 
 describe('Athelete Model test', () => {
