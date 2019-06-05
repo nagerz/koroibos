@@ -60,7 +60,7 @@ function findAllAtheletes() {
           required: false
         }
       ],
-      order: [['age', 'ASC']],
+      order: [['age', 'ASC'], ['name', 'ASC']],
     })
     .then(atheletes => {
       return atheletes.map(athelete => {
